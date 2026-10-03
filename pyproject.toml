@@ -1,0 +1,17 @@
+[project]
+name = "mountain-car-rl"
+version = "0.1.0"
+description = "RL Mountain Car project"
+requires-python = ">=3.9"
+dependencies = [
+    "gymnasium",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+    "tqdm",
+    "ipykernel"
+]
+
+[tool.uv]
+package = false
