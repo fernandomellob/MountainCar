@@ -10,7 +10,9 @@ dependencies = [
     "matplotlib",
     "seaborn",
     "tqdm",
-    "ipykernel"
+    "ipykernel",
+    "moviepy>=2.2.1",
+    "pygame>=2.6.1",
 ]
 
 [tool.uv]
