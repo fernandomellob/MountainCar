@@ -1,3 +1,4 @@
+import random
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -16,6 +17,7 @@ def run_experiment(agent_type, discretizer, env_name="MountainCar-v0", episodes=
         # Inicializa ambiente com seed fixa
         env = gym.make(env_name)
         np.random.seed(seed)
+        random.seed(seed)  # o módulo random é usado pelos agentes (epsilon-greedy e planejamento)
         env.action_space.seed(seed)
         
         agent = agent_type(env.action_space, **agent_kwargs)
@@ -62,6 +64,7 @@ def run_experiment(agent_type, discretizer, env_name="MountainCar-v0", episodes=
                 'Q-Updates': agent.q_updates_count,
                 'Reward': ep_reward
             })
+            agent.end_episode()  # decaimento de epsilon (sem efeito com epsilon_decay=1.0)
             
         env.close()
         
